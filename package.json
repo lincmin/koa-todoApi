@@ -20,10 +20,17 @@
   },
   "homepage": "https://github.com/lincmin/koa-todoApi#readme",
   "dependencies": {
-    "koa": "^2.5.2"
+    "koa": "^2.5.2",
+    "koa-better-body": "^3.0.4",
+    "koa-better-router": "^2.1.1",
+    "koa-convert": "^1.2.0",
+    "password-hash": "^1.2.2",
+    "sequelize": "^4.38.0",
+    "sqlite3": "^4.0.2"
   },
   "devDependencies": {
     "@types/koa": "^2.0.46",
-    "@types/node": "^10.5.3"
+    "@types/node": "^10.5.3",
+    "@types/sequelize": "^4.27.24"
   }
 }
