@@ -1,0 +1,27 @@
+{
+  "name": "koa-todoApi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lincmin/koa-todoApi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lincmin/koa-todoApi/issues"
+  },
+  "homepage": "https://github.com/lincmin/koa-todoApi#readme",
+  "dependencies": {
+    "koa": "^2.5.2"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.0.46",
+    "@types/node": "^10.5.3"
+  }
+}
