@@ -6,6 +6,7 @@ const router = Router().loadMethods()
 const api = Router({ prefix: '/api/v1' })
 api.get('/register', UserController.register)
 api.post('/register', UserController.register)
+api.post('/login', UserController.login);
 api.extend(router)
 
 export { api, router }
