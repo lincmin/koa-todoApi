@@ -1,7 +1,9 @@
 import Koa from 'koa'
 import UserUtil, { User } from '../model/user'
 import ph from 'password-hash'
+import jwt from 'jsonwebtoken';
 
+const secret = 'todo-app';
 function getFields(ctx: Koa.Context, next): any {
   try {
     const { username, email, password } = ctx.request.fields
@@ -29,7 +31,8 @@ export default {
         email,
         password
       })
-      ctx.body = exceptPassword(user)
+      const ret = exceptPassword(user);
+      ctx.body = jwt.sign(ret, secret);
     } catch (e) {
       console.error(e)
       ctx.status = 422
@@ -48,7 +51,15 @@ export default {
       })
       if (ph.verify(password, db_user.password)) {
         ctx.status = 200
-        ctx.body = exceptPassword(db_user)
+        const ret = exceptPassword(db_user);
+        ctx.body = {
+          message: '登录成功',
+          user: ret,
+          token: jwt.sign({
+            data: ret,
+            exp: Math.floor(Date.now() / 1000) + (60 * 60), // 设置 token 过期时间60 seconds * 60 minutes = 1 hour
+          }, secret)
+        }
       } else {
         ctx.body = '密码不正确'
       }
